@@ -6,12 +6,18 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body ng-controller="troll">
-<h1>OUR RESTAURANT BE GOOD {{restaurant.name}}</h1>
+<h1>&#161;Bienvenidos al {{restaurant.name}}!</h1>
+		<div>
+			<h2>Dietary Restrictons</h2>
+			<h3 ng-click="veganClick()">Vegan (for hippies)</h3>
+			<h3 ng-click="glutenClick()">Gluten Free (1% Legit, 99% Stupid)</h3>
+			<h3 ng-click="cfClick()">Citrus Free (Is that a thing?)</h3>
+		</div>
 	<div>
 		<ul ng-repeat="thing in restaurant.menu.plate">
-		<h2>{{thing.name}}</h2>
+		<h2 ng-class="{highlighter: thing.highlight}"><img ng-click="clickHandler(thing)" style="cursor:pointer" src="http://www.dankorindustries.com/images/accordion-plus-sign.png">{{thing.name}}</h2>
 			<li>{{thing.description}}</li>
-			<li>{{thing.price}}</li>
+			<li class="righter">&#8369{{thing.price}}</li>
 			<li>
 				<ul>
 					<li ng-repeat="diet in thing.arrayify()">{{diet}}</li>
@@ -21,17 +27,37 @@
 	</div>
 	
 <!-- order form -->
-	<div>
-		<ul>
-			<li><img src="http://placehold.it/25x25">Burrito</li>
-			<li>your total</li>
+	<div class="cartBacker" ng-hide='hideMe'>
+		<ul ng-repeat="stuff in cart track by $index">
+			<li><img ng-click="cartRemove(stuff)" src="http://www.regtqm.com/v/vspfiles/photos/Rev-2-0.jpg">{{stuff.name}}</li>
 		</ul>
+		<p>Your Total, Gringo:&nbsp; &#8369{{total}}<p>
+		<button ng-click="orderSubmit()">Send Your Order</button>
 	</div>
-	<div>
-		<ul>
-			<li>thanks/charge</li>
-		</ul>
-	</div>
+		<div class="getCenter">
+		<marquee>
+		<div  class="thankBacker" ng-show="totalBox">
+			<h2>*** &#161;Gracias, amigo! ***</h2>
+			<h3>Your Account Has Been Charged &#8369{{total}}</h3>
+		</div>
+		<div  class="thankBacker" ng-show="totalBox">
+			<h2>*** &#161;Gracias, amigo! ***</h2>
+			<h3>Your Account Has Been Charged &#8369{{total}}</h3>
+		</div>
+		<div  class="thankBacker" ng-show="totalBox">
+			<h2>*** &#161;Gracias, amigo! ***</h2>
+			<h3>Your Account Has Been Charged &#8369{{total}}</h3>
+		</div>
+		<div  class="thankBacker" ng-show="totalBox">
+			<h2>*** &#161;Gracias, amigo! ***</h2>
+			<h3>Your Account Has Been Charged &#8369{{total}}</h3>
+		</div>
+		<div  class="thankBacker" ng-show="totalBox">
+			<h2>*** &#161;Gracias, amigo! ***</h2>
+			<h3>Your Account Has Been Charged &#8369{{total}}</h3>
+		</div>
+		</marquee>
+		</div>
 <script type="text/javascript" src="script.js"></script>
 </body>
 </html>

@@ -239,7 +239,7 @@ angular.module("restaurant", [])
 			}
 
 			return {
-				restaurant : myRestaurant
+				restaurant : myRestaurant,
 			}
 
 
@@ -250,9 +250,67 @@ angular.module("restaurant", [])
 		.controller("troll", ["$scope","foodFactory", function($scope, foodFactory){
 			var s = $scope
 			s.restaurant = foodFactory.restaurant
+			s.hideMe = true
+			s.cart = []
+			s.total = 0
+			s.totalBox = false
+			s.highlight = false
+			
+			s.clickHandler = function(thing) {
+				s.hideMe = false
+				s.cart.push(thing)
+				s.total += thing.price
 
+			}
+			s.cartRemove = function(stuff){
+				s.cart.splice(s.cart.indexOf(stuff),1)
+				s.total -= stuff.price
+				if (s.total <= 0) {
+					s.hideMe = true;
+				}
+			}
+			s.orderSubmit = function(){
+				s.hideMe = true
+				s.totalBox = true
+			}
+			s.veganClick = function(){
+				console.log("that's my eye")
+				console.log(s.restaurant.menu.plate[0].ingredients)
+				s.restaurant.menu.plate.forEach(function(element){
+						element.ingredients.forEach(function(elementI){
+						if(elementI.vegan === true) {
+							element.highlight = !element.highlight
+						}
+				})
+				})
+				
+			}
 
+			s.glutenClick = function(){
+				console.log("that's my eye")
+				console.log(s.restaurant.menu.plate[0].ingredients)
+				s.restaurant.menu.plate.forEach(function(element){
+						element.ingredients.forEach(function(elementI){
+						if(elementI.glutenFree === true) {
+							element.highlight = !element.highlight
+						}
+				})
+				})
+				
+			}
 
+			s.cfClick = function(){
+				console.log("that's my eye")
+				console.log(s.restaurant.menu.plate[0].ingredients)
+				s.restaurant.menu.plate.forEach(function(element){
+						element.ingredients.forEach(function(elementI){
+						if(elementI.citrusFree === true) {
+							element.highlight = !element.highlight
+						}
+				})
+				})
+				
+			}
 
 
 

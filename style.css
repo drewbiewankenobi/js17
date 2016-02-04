@@ -1,0 +1,44 @@
+body{
+	background-image: url("http://all4desktop.com/data_images/original/4236795-wallpaper-background.jpg");
+	background-size: stretch;
+	color: gold;
+}
+
+ul {
+	list-style: none;
+}
+
+.thankBacker {
+	display: inline-block;
+	height:500px;
+	width:400px;
+	background-image: url("http://cdn.shopify.com/s/files/1/0152/4083/products/MexicanHatTrick_large.jpg?v=1371463740");
+	background-size: cover;
+	text-align: center;
+	color: black;
+	-webkit-text-stroke-width: 1px;
+   -webkit-text-stroke-color: gold;
+}
+
+.getCenter {
+	position: fixed;
+	top:20%;
+	z-index: 100;
+}
+
+.highlighter {
+	background-color: green;
+}
+
+.cartBacker{
+	background-color: #ecf0f1;
+	max-width: 50%;
+	width: 300px;
+	position: relative;
+	margin: auto;
+	color: #2c3e50;
+}
+
+.righter {
+	padding-left: 200px;
+}
