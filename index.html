@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="restaurant">
+<head>
+	<title>Maximum 100% Awesome Restaurant, USA!</title>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="troll">
+<h1>OUR RESTAURANT BE GOOD {{restaurant.name}}</h1>
+	<div>
+		<ul ng-repeat="thing in restaurant.menu.plate">
+		<h2>{{thing.name}}</h2>
+			<li>{{thing.description}}</li>
+			<li>{{thing.price}}</li>
+			<li>
+				<ul>
+					<li ng-repeat="diet in thing.arrayify()">{{diet}}</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	
+<!-- order form -->
+	<div>
+		<ul>
+			<li><img src="http://placehold.it/25x25">Burrito</li>
+			<li>your total</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>thanks/charge</li>
+		</ul>
+	</div>
+<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
